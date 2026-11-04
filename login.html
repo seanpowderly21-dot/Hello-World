@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f5">
+  <title>Client login — CallBack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="login" class="auth-page">
+  <header class="site-header auth-header"><a class="brand" href="/"><span class="brand-mark">↗</span> callback<span class="brand-period">.</span></a><a class="text-link" href="/">← Back to home</a></header>
+  <main class="auth-layout section-wrap">
+    <section class="auth-intro"><div class="eyebrow"><span class="eyebrow-dot"></span> GOOD TO SEE YOU AGAIN</div><h1>Your next<br><span>conversation</span><br>starts here.</h1><p>Sign in to see your CallBack activity and keep every customer conversation moving.</p><div class="auth-decoration"><span>✳</span><div>Missed call?<br><strong>We’ve got the next step.</strong></div></div></section>
+    <section class="auth-card"><a class="brand auth-card-brand" href="/"><span class="brand-mark">↗</span> callback<span class="brand-period">.</span></a><h2>Welcome back</h2><p class="muted">Sign in to your client dashboard.</p>
+      <form id="login-form" novalidate>
+        <label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="username" placeholder="you@yourbusiness.com" required>
+        <div class="password-label"><label for="password">Password</label><span>Demo access</span></div><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+        <p class="form-error" id="login-error" role="alert" hidden></p>
+        <button class="button button-primary auth-submit" type="submit">Sign in <span aria-hidden="true">→</span></button>
+      </form>
+      <div class="demo-hint"><span>i</span><p><strong>Just exploring?</strong><br>Use <code>demo@callback.co</code> and <code>demo123</code> to preview the portal.</p></div>
+      <p class="auth-footnote">This is a front-end demo. No real account or customer data is used.</p>
+    </section>
+  </main>
+  <footer class="site-footer section-wrap"><a class="brand" href="/"><span class="brand-mark">↗</span> callback<span class="brand-period">.</span></a><span>© <span data-year></span> CallBack Software</span></footer>
+  <script src="/app.js" defer></script>
+</body>
+</html>

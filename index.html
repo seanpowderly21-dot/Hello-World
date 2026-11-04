@@ -1,102 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>Snake</title>
-<style>
-  body { margin:0; background:#111; color:#fff; font-family:sans-serif;
-         display:flex; flex-direction:column; align-items:center; padding-top:20px; }
-  canvas { background:#1b1b1b; border:2px solid #2ecc71; touch-action:none; }
-  #score { font-size:20px; margin-bottom:10px; }
-  button { margin-top:12px; padding:10px 24px; font-size:16px; border:0;
-           border-radius:8px; background:#2ecc71; color:#111; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Never miss a new lead. CallBack helps local businesses automatically text customers when they can't get to the phone.">
+  <meta name="theme-color" content="#f7f8f5">
+  <title>CallBack — Turn missed calls into booked business</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
-<div id="score">Score: 0</div>
-<canvas id="c" width="320" height="320"></canvas>
-<button onclick="reset()">Restart</button>
-<p style="opacity:.6">Arrow keys / WASD, or swipe</p>
+<body data-page="home">
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="CallBack home"><span class="brand-mark">↗</span> callback<span class="brand-period">.</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#how-it-works">How it works</a>
+      <a href="#benefits">Why CallBack</a>
+    </nav>
+    <a class="button button-small button-dark" href="/login">Client login <span aria-hidden="true">→</span></a>
+  </header>
 
-<script>
-const canvas = document.getElementById('c');
-const ctx = canvas.getContext('2d');
-const size = 16, tiles = canvas.width / size;
-let snake, dir, food, score, loop;
+  <main>
+    <section class="hero section-wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> THE SIMPLEST WAY TO WIN THE CALLBACK</div>
+        <h1>Missed the call.<br><span>Not the customer.</span></h1>
+        <p class="hero-description">When you’re busy doing the work, CallBack sends a friendly text to every caller you can’t answer—so good leads don’t go to voicemail and disappear.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="/login">Explore the client portal <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-proof"><div class="avatar-stack"><span>J</span><span>M</span><span>A</span><span>+</span></div><p>Made for teams that are<br><strong>busy getting things done.</strong></p></div>
+      </div>
+      <div class="hero-visual" aria-label="Preview of a missed call text conversation">
+        <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+        <div class="floating-label label-top"><span class="status-pulse"></span> New lead captured</div>
+        <div class="phone-card">
+          <div class="phone-notch"></div>
+          <div class="phone-header"><span class="phone-back">‹</span><div class="contact-avatar">C</div><div><strong>CallBack</strong><small>Business SMS</small></div><span class="phone-more">•••</span></div>
+          <div class="message-date">TODAY, 10:42 AM</div>
+          <div class="call-notice"><span>↙</span><div><strong>Missed call</strong><small>10:42 AM · Mobile</small></div></div>
+          <div class="chat-bubble received">Hi! Sorry we missed your call. What can we help you with today?</div>
+          <div class="chat-time">AUTOMATIC REPLY · JUST NOW</div>
+          <div class="chat-bubble sent">I need a quote for a kitchen remodel.</div>
+          <div class="chat-bubble received">Absolutely! We’d be happy to help. What’s the best time to call you back?</div>
+          <div class="reply-box">Text Message <span>↑</span></div>
+        </div>
+        <div class="floating-label label-bottom"><span class="label-icon">✓</span><span><strong>Lead saved</strong><small>Ready for your team</small></span></div>
+        <div class="visual-spark spark-one">✳</div><div class="visual-spark spark-two">✳</div>
+      </div>
+    </section>
 
-function reset() {
-  snake = [{x:10, y:10}];
-  dir = {x:1, y:0};
-  score = 0;
-  placeFood();
-  document.getElementById('score').textContent = 'Score: 0';
-  clearInterval(loop);
-  loop = setInterval(tick, 120);
-}
+    <section class="trust-strip section-wrap" aria-label="Product highlights"><span>BUILT FOR THE MOMENTS YOU CAN’T PICK UP</span><div><i>✳</i> Instant replies</div><div><i>✳</i> More conversations</div><div><i>✳</i> Less lead leakage</div></section>
 
-function placeFood() {
-  do {
-    food = {x: Math.floor(Math.random()*tiles), y: Math.floor(Math.random()*tiles)};
-  } while (snake.some(s => s.x === food.x && s.y === food.y));
-}
+    <section class="how-section section-wrap" id="how-it-works">
+      <div class="section-heading"><div class="eyebrow">A BETTER FIRST IMPRESSION</div><h2>Every missed call gets<br>a next step.</h2><p>No complicated setup for your customers. Just a thoughtful text that keeps the conversation moving.</p></div>
+      <div class="steps-grid">
+        <article class="step-card"><div class="step-number">01 <span>↗</span></div><div class="step-icon icon-phone">⌁</div><h3>You’re on another call</h3><p>A customer calls while you’re with a client, on a job, or after hours. It happens.</p></article>
+        <article class="step-card"><div class="step-number">02 <span>↗</span></div><div class="step-icon icon-message">✉</div><h3>A helpful text goes out</h3><p>CallBack quickly lets them know you’ll be in touch and invites them to share what they need.</p></article>
+        <article class="step-card"><div class="step-number">03 <span>↗</span></div><div class="step-icon icon-spark">✳</div><h3>Your next lead is waiting</h3><p>The conversation is ready for your team, so you can follow up when you’re free.</p></article>
+      </div>
+    </section>
 
-function tick() {
-  const head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
-  if (head.x < 0 || head.y < 0 || head.x >= tiles || head.y >= tiles ||
-      snake.some(s => s.x === head.x && s.y === head.y)) {
-    clearInterval(loop);
-    ctx.fillStyle = 'rgba(0,0,0,.7)';
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle = '#fff';
-    ctx.font = '24px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('Game Over', canvas.width/2, canvas.height/2);
-    return;
-  }
-  snake.unshift(head);
-  if (head.x === food.x && head.y === food.y) {
-    score++;
-    document.getElementById('score').textContent = 'Score: ' + score;
-    placeFood();
-  } else {
-    snake.pop();
-  }
-  draw();
-}
+    <section class="benefit-section section-wrap" id="benefits"><div class="benefit-art"><div class="art-circle"><div class="art-card"><span class="art-check">✓</span><span><strong>Opportunity, kept.</strong><small>A little reply goes a long way.</small></span><span class="art-arrow">↗</span></div><span class="art-star">✳</span><span class="art-ring"></span></div></div><div class="benefit-copy"><div class="eyebrow">SMALL MOMENT. BIG DIFFERENCE.</div><h2>Your workday is busy.<br><span>Your leads shouldn’t wait.</span></h2><p>People reach out when they’re ready. A quick response shows them you’re ready, too—even when you can’t answer right away.</p><ul class="check-list"><li><span>✓</span> Make every caller feel acknowledged</li><li><span>✓</span> Keep new opportunities from going cold</li><li><span>✓</span> Get back to customers with useful context</li></ul><a class="text-link" href="/login">Take a look inside the portal <span aria-hidden="true">→</span></a></div></section>
 
-function draw() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = '#e74c3c';
-  ctx.fillRect(food.x*size, food.y*size, size-2, size-2);
-  ctx.fillStyle = '#2ecc71';
-  snake.forEach(s => ctx.fillRect(s.x*size, s.y*size, size-2, size-2));
-}
-
-function turn(x, y) {
-  if (x !== -dir.x || y !== -dir.y) dir = {x, y};
-}
-
-document.addEventListener('keydown', e => {
-  const k = e.key.toLowerCase();
-  if (k === 'arrowup' || k === 'w') turn(0,-1);
-  if (k === 'arrowdown' || k === 's') turn(0,1);
-  if (k === 'arrowleft' || k === 'a') turn(-1,0);
-  if (k === 'arrowright' || k === 'd') turn(1,0);
-});
-
-let sx, sy;
-canvas.addEventListener('touchstart', e => {
-  sx = e.touches[0].clientX; sy = e.touches[0].clientY;
-});
-canvas.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - sx;
-  const dy = e.changedTouches[0].clientY - sy;
-  if (Math.abs(dx) > Math.abs(dy)) turn(dx > 0 ? 1 : -1, 0);
-  else turn(0, dy > 0 ? 1 : -1);
-});
-
-reset();
-</script>
+    <section class="cta-section section-wrap"><div><div class="eyebrow">YOUR NEXT CUSTOMER MIGHT BE CALLING</div><h2>Be ready for the calls<br>you can’t answer.</h2></div><a class="button button-light" href="/login">See the demo portal <span aria-hidden="true">→</span></a><span class="cta-decoration">✳</span></section>
+  </main>
+  <footer class="site-footer section-wrap"><a class="brand" href="/"><span class="brand-mark">↗</span> callback<span class="brand-period">.</span></a><span>Thoughtful follow-up for busy businesses.</span><span>© <span data-year></span> CallBack Software</span></footer>
+  <script src="/app.js" defer></script>
 </body>
 </html>
